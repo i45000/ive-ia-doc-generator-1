@@ -1,5 +1,5 @@
 {
-  "name": "IVE-IA-Generator",
+  "name": "IVE-IA-Doc-Generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -77,14 +77,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marklai1998/IVE-IA-Generator.git"
+    "url": "git+https://github.com/marklai1998/IVE-IA-Doc-Generator.git"
   },
   "author": "MarkLai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marklai1998/IVE-IA-Generator/issues"
+    "url": "https://github.com/marklai1998/IVE-IA-Doc-Generator/issues"
   },
-  "homepage": "https://github.com/marklai1998/IVE-IA-Generator#readme",
+  "homepage": "https://github.com/marklai1998/IVE-Doc-IA-Generator#readme",
   "jest": {
     "verbose": true,
     "testURL": "http://localhost/",
