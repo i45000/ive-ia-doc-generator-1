@@ -6,8 +6,20 @@
 .logo {
   height: 30px;
   padding: 10px 8px 10px 12px;
-  background-color: #1e88e5;
+  background-color: #1976d2;
   float: left;
+}
+
+.ghLogo {
+  float: right;
+  height: 30px;
+  padding: 10px;
+  background-color: #1e88e5;
+  transition: 0.5s;
+}
+
+.ghLogo:hover {
+  background-color: rgb(28, 129, 218);
 }
 
 .title {
