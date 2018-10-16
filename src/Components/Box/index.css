@@ -8,5 +8,16 @@
   background-color: #fff;
   width: 100%;
   max-width: 1000px;
-  margin-top: 20px;
+  margin: 20px 10px;
+  color: #333;
+}
+
+.title {
+  font-size: 25px;
+  padding: 5px 10px;
+  border-bottom: rgb(216, 216, 216) 1px solid;
+}
+
+.body {
+  padding: 5px 10px;
 }
