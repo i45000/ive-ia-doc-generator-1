@@ -8,16 +8,32 @@
   background-color: #fff;
   width: 100%;
   max-width: 1000px;
-  margin: 20px 10px;
+  margin: 20px 10px 0 10px;
   color: #333;
 }
 
 .title {
-  font-size: 25px;
+  font-size: 20px;
   padding: 5px 10px;
+  font-weight: bold;
+}
+
+.title.border {
   border-bottom: rgb(216, 216, 216) 1px solid;
 }
 
 .body {
   padding: 5px 10px;
+}
+
+.progressBg {
+  width: 100%;
+  height: 3px;
+  background-color: #f44336;
+}
+
+.progress {
+  height: 100%;
+  background-color: #8bc34a;
+  transition: 0.5s;
 }
