@@ -1,5 +1,5 @@
 body {
-  font-family: "Rajdhani", Microsoft JhengHei, sans-serif;
+  font-family: 'Rajdhani', Microsoft JhengHei, sans-serif;
   background-color: #e6e6e6;
   padding: 0;
   margin: 0;
@@ -30,4 +30,24 @@ a {
 a:hover {
   color: #bdbdbd;
   text-decoration: none;
+}
+
+input {
+  height: 25px;
+  margin: 10px 0;
+  border-radius: 1px;
+  padding: 0 5px;
+  border-width: 0 0 5px 0;
+  border-bottom: #e4e4e4 2px solid;
+  transition: border-bottom 0.5s;
+  width: 100%;
+}
+
+input.error {
+  border-bottom: #f44336 2px solid;
+}
+
+input:focus {
+  outline-width: 0;
+  border-bottom: #2196f3 2px solid;
 }
