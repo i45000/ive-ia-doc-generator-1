@@ -1,38 +1,29 @@
 // @flow
 
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: "./src/index.js",
-  mode: "production",
-  resolve: {
-    alias: {
-      assets: path.resolve(__dirname, "src/assets"),
-      inputFields: path.resolve(
-        __dirname,
-        "src/modules/_shared/components/inputFields"
-      )
-    }
-  },
+  entry: './src/index.js',
+  mode: 'production',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   node: {
-    fs: "empty"
+    fs: 'empty'
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
-      filename: "index.html"
+      template: 'src/index.html',
+      filename: 'index.html'
     })
   ],
   module: {
@@ -41,34 +32,34 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             plugins: [
-              "@babel/plugin-syntax-dynamic-import",
-              "@babel/plugin-proposal-class-properties",
-              "@babel/plugin-proposal-object-rest-spread",
-              "babel-plugin-ramda",
-              "@babel/plugin-transform-runtime"
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-object-rest-spread',
+              'babel-plugin-ramda',
+              '@babel/plugin-transform-runtime'
             ],
-            presets: ["@babel/preset-react", "@babel/preset-flow", "@babel/env"]
+            presets: ['@babel/preset-react', '@babel/preset-flow', '@babel/env']
           }
         }
       },
       {
         test: /\.(png|jpg|gif|svg|ico)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            publicPath: "./"
+            publicPath: './'
           }
         }
       },
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true
             }
@@ -77,4 +68,4 @@ module.exports = {
       }
     ]
   }
-};
+}

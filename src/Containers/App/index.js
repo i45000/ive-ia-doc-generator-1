@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Header } from '../../Components/Header'
 import { Instruction } from '../../Components/Instruction'
-import Form from '../Form/Form'
+import FormBody from '../FormBody/FormBody'
 import LoadJson from '../LoadJson'
 
 export const App = () => (
@@ -12,6 +12,6 @@ export const App = () => (
     <Header />
     <Instruction />
     <LoadJson />
-    <Form />
+    <FormBody />
   </React.Fragment>
 )
