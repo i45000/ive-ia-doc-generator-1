@@ -1,6 +1,6 @@
 // @flow strict
 
-import { combineForms } from 'react-redux-form'
+import { combineForms } from 'react-redux-form/immutable'
 import { combineReducers } from 'redux'
 
 import { programInfo } from './form/programInfo'

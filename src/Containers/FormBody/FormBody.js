@@ -1,7 +1,7 @@
 // @flow strict
 
 import React from 'react'
-import { Form } from 'react-redux-form'
+import { Form } from 'react-redux-form/immutable'
 
 import { ProgramInfo } from '../ProgramInfo'
 
@@ -17,7 +17,7 @@ class FormBody extends React.PureComponent<{}, State> {
   }
 
   handleChange = (values: Object) => {
-    console.log('change', values)
+    console.log('change', values.get('name'))
   }
 
   handleUpdate = (form: Object) => {
