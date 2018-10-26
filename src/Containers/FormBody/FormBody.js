@@ -1,15 +1,20 @@
 // @flow strict
 
 import React from 'react'
-import { Form } from 'react-redux-form/immutable'
+import { connect } from 'react-redux'
+import { Form, actions } from 'react-redux-form/immutable'
 
 import { ProgramInfo } from '../ProgramInfo'
+
+type Props = {
+  set: () => void
+}
 
 type State = {
   percentage: { [string]: number }
 }
 
-class FormBody extends React.PureComponent<{}, State> {
+class FormBody extends React.PureComponent<Props, State> {
   state = {
     percentage: {
       programInfo: 10
@@ -28,6 +33,10 @@ class FormBody extends React.PureComponent<{}, State> {
     console.log('submit', values)
   }
 
+  test = () => {
+    this.props.set()
+  }
+
   render () {
     return (
       <Form
@@ -37,9 +46,21 @@ class FormBody extends React.PureComponent<{}, State> {
       >
         <ProgramInfo percentage={this.state.percentage.programInfo} />
         <button type='submit'>Submit!</button>
+        <div onClick={this.test}>test</div>
       </Form>
     )
   }
 }
 
-export default FormBody
+const mapDispatchToProps = dispatch => {
+  return {
+    set: () => {
+      dispatch(actions.change('form.programInfo', { name: 123 }))
+    }
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(FormBody)
