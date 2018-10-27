@@ -29,18 +29,18 @@ export const calComplete = (
         const field = R.prop(key, stateCategoryObj)
 
         const required = R.path([category, key, 'required'], map)
-        const mapCategoryObj = R.prop(category, map)
-        const requiredWithKeySearch =
-          required === undefined
-            ? Object.keys(mapCategoryObj).some(fieldObj => {
-              const fieldKey = R.prop('key', fieldObj)
-              if (fieldKey !== undefined && fieldKey === key) {
-                return R.prop('required', fieldObj)
-              } else return false
-            })
-            : required
+        // const mapCategoryObj = R.prop(category, map)
+        // const requiredWithKeySearch =
+        //   required === undefined
+        //     ? Object.keys(mapCategoryObj).some(fieldObj => {
+        //       const fieldKey = R.prop('key', fieldObj)
+        //       if (fieldKey !== undefined && fieldKey === key) {
+        //         return R.prop('required', fieldObj)
+        //       } else return false
+        //     })
+        //     : required
 
-        if (!requiredWithKeySearch) return accCount + 1
+        if (!required) return accCount + 1
         return field !== '' && field !== undefined ? accCount + 1 : accCount
       },
       0
