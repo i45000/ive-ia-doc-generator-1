@@ -3,7 +3,7 @@ body {
   background-color: #e6e6e6;
   padding: 0;
   margin: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   color: #333;
 }
@@ -11,6 +11,10 @@ body {
 :global(#root) {
   width: 100%;
   height: 100%;
+}
+
+h4 {
+  margin-bottom: 5px;
 }
 
 button {
@@ -32,22 +36,58 @@ a:hover {
   text-decoration: none;
 }
 
-input {
+input,
+select {
   height: 25px;
   margin: 10px 0;
   border-radius: 1px;
   padding: 0 5px;
-  border-width: 0 0 5px 0;
+  border-width: 0 0 2px 0;
   border-bottom: #e4e4e4 2px solid;
   transition: border-bottom 0.5s;
   width: 100%;
 }
 
-input.error {
+textarea {
+  min-height: 50px;
+  margin: 10px 0;
+  border-radius: 1px;
+  border: #e4e4e4 2px solid;
+  transition: border-bottom 0.5s;
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+}
+
+input:invalid,
+select:invalid {
   border-bottom: #f44336 2px solid;
 }
 
-input:focus {
+textarea:invalid {
+  border: #f44336 2px solid;
+}
+
+input:focus,
+select:focus {
   outline-width: 0;
   border-bottom: #2196f3 2px solid;
+}
+
+textarea:focus {
+  outline-width: 0;
+  border: #2196f3 2px solid;
+}
+
+input[type='radio'] {
+  margin: 16px 0;
+  height: initial;
+  width: initial;
+}
+
+.comment {
+  margin: 20px 5px 0 10px;
+  font-size: 13px;
+  line-height: initial;
+  flex-shrink: 0;
 }

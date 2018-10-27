@@ -1,7 +1,10 @@
 // @flow strict
 
-import { combineForms } from 'react-redux-form/immutable'
+import { createForms } from 'react-redux-form/immutable'
 
-import { programInfo } from './programInfo'
+import { inputMap } from '../../inputMap'
+import { getInitState } from '../../Utils/formHelper'
 
-export const formReducer = combineForms({ programInfo }, 'form')
+export const INITIAL_STATE = getInitState(inputMap)
+
+export const formReducer = createForms({ form: INITIAL_STATE })

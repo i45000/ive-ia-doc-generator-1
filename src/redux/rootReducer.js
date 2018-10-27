@@ -7,5 +7,5 @@ import { uiReducer } from './ui/reducer'
 
 export const rootReducer = combineReducers({
   ui: uiReducer,
-  form: formReducer
+  ...formReducer
 })

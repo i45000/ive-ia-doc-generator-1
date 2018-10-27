@@ -1,13 +1,11 @@
 // @flow strict
 
-import classnames from 'classnames'
 import * as React from 'react'
 
 import classes from './index.css'
 
 type Props = {
   children: React.Node,
-  for: string,
   label: string
 }
 
