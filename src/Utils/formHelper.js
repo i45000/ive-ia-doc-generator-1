@@ -4,12 +4,16 @@ import { fromJS } from 'immutable'
 import * as R from 'ramda'
 import React from 'react'
 
-import { inputMap } from '../inputMap'
+import { inputMap as mapReference } from '../inputMap'
 
-export const getInitState: (typeof inputMap) => any = R.compose(
+export const getInitState: (typeof mapReference) => any = R.compose(
   fromJS,
   R.mapObjIndexed(R.mapObjIndexed(({ initialValue }) => initialValue))
 )
+
+export const getInitPercentage: (
+  typeof mapReference
+) => { [string]: number } = R.mapObjIndexed(() => 0)
 
 export const getFields = R.mapObjIndexed(({ element, required, key }, objKey) =>
   React.cloneElement(element, {
@@ -19,22 +23,22 @@ export const getFields = R.mapObjIndexed(({ element, required, key }, objKey) =>
 )
 
 export const getCompletePercentage = (
-  map: typeof inputMap,
-  state: { [string]: { [string]: any } }
+  inputMap: typeof mapReference,
+  formState: { [string]: { [string]: any } }
 ) =>
-  Object.keys(state).reduce((accObj, category) => {
-    const stateCategoryObj = R.prop(category, state)
+  Object.keys(formState).reduce((accObj, categoryKey) => {
+    const stateCategoryObj = R.prop(categoryKey, formState)
     const completeCount = Object.keys(stateCategoryObj).reduce(
-      (accCount, key) => {
-        const field = R.prop(key, stateCategoryObj)
-        const required = R.path([category, key, 'required'], map)
+      (accCount, fieldKey) => {
+        const field = R.prop(fieldKey, stateCategoryObj)
+        const required = R.path([categoryKey, fieldKey, 'required'], inputMap)
         if (!required) return accCount + 1
-        return field !== '' && field !== undefined ? accCount + 1 : accCount
+        if (field !== '' && field !== undefined) return accCount + 1
+        return accCount
       },
       0
     )
-
     const percentage =
       (completeCount / Object.keys(stateCategoryObj).length) * 100
-    return { ...accObj, [category]: percentage }
+    return { ...accObj, [categoryKey]: percentage }
   }, {})

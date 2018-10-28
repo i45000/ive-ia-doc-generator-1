@@ -10,7 +10,10 @@ import { ProgramInfo } from '../../Components/ProgramInfo'
 import { SiteVisit } from '../../Components/SiteVisit'
 import { inputMap } from '../../inputMap'
 import { INITIAL_STATE } from '../../redux/form/reducer'
-import { getCompletePercentage } from '../../Utils/formHelper'
+import {
+  getCompletePercentage,
+  getInitPercentage
+} from '../../Utils/formHelper'
 
 type State = {
   percentage: { [string]: number }
@@ -18,17 +21,7 @@ type State = {
 
 export class FormBody extends React.PureComponent<{}, State> {
   state = {
-    percentage: {
-      programInfo: 0,
-      personalInfo: 0,
-      emergencyContact: 0,
-      iaSupervisor: 0,
-      iaCompany: 0,
-      iaMentor: 0,
-      iaJob: 0,
-      iaRequirement: 0,
-      siteVisit: 0
-    }
+    percentage: getInitPercentage(inputMap)
   }
 
   componentDidMount () {
