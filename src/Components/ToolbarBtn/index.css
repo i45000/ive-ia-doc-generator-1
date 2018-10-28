@@ -11,7 +11,6 @@
   background-color: unset;
   border: 0;
   color: #505050;
-  transition: 0.5s all;
   border-radius: 2px;
 }
 
@@ -30,10 +29,6 @@
 
 .btn.light {
   color: #fff;
-}
-
-.btn:hover {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover + .label {

@@ -19,7 +19,7 @@
   float: left;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .column {
     width: 100%;
   }

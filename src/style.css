@@ -19,6 +19,11 @@ h4 {
 button {
   font-family: 'Rajdhani', Microsoft JhengHei, sans-serif;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 button:focus {
