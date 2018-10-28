@@ -10,7 +10,7 @@ import { ProgramInfo } from '../../Components/ProgramInfo'
 import { SiteVisit } from '../../Components/SiteVisit'
 import { inputMap } from '../../inputMap'
 import { INITIAL_STATE } from '../../redux/form/reducer'
-import { calComplete } from '../../Utils/formHelper'
+import { getCompletePercentage } from '../../Utils/formHelper'
 
 type State = {
   percentage: { [string]: number }
@@ -32,12 +32,12 @@ export class FormBody extends React.PureComponent<{}, State> {
   }
 
   componentDidMount () {
-    const percentageObj = calComplete(inputMap, INITIAL_STATE.toJS())
+    const percentageObj = getCompletePercentage(inputMap, INITIAL_STATE.toJS())
     this.setState({ percentage: percentageObj })
   }
 
   handleChange = (values: Object) => {
-    const percentageObj = calComplete(inputMap, values.toJS())
+    const percentageObj = getCompletePercentage(inputMap, values.toJS())
     this.setState({ percentage: percentageObj })
     console.log('change', values.toJS())
   }

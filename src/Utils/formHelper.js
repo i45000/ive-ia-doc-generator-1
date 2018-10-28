@@ -18,7 +18,7 @@ export const getFields = R.mapObjIndexed(({ element, required, key }, objKey) =>
   })
 )
 
-export const calComplete = (
+export const getCompletePercentage = (
   map: typeof inputMap,
   state: { [string]: { [string]: any } }
 ) =>
