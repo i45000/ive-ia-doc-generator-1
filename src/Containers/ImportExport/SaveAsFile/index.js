@@ -1,7 +1,5 @@
 // @flow strict
 
-// @flow strict
-
 import FileSaver from 'file-saver'
 import React from 'react'
 
