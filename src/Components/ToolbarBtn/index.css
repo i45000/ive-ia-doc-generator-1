@@ -1,3 +1,8 @@
+.wrapper {
+  display: inline-block;
+  position: relative;
+}
+
 .btn {
   width: 31px;
   height: 31px;
@@ -5,9 +10,22 @@
   margin-left: 0;
   background-color: unset;
   border: 0;
-  color: rgb(80, 80, 80);
+  color: #505050;
   transition: 0.5s all;
   border-radius: 2px;
+}
+
+.label {
+  position: absolute;
+  top: 37px;
+  background-color: #303030;
+  color: #fff;
+  border-radius: 2px;
+  padding: 3px 10px;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .btn.light {
@@ -16,4 +34,8 @@
 
 .btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover + .label {
+  opacity: 1;
 }

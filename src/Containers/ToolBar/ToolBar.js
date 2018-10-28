@@ -26,10 +26,13 @@ class ToolBar extends React.PureComponent<Props> {
       <div className={classes.wrapper}>
         <div className={classes.toolBar}>
           <Container>
-            <ToolbarBtn type='submit' form='form'>
+            <ToolbarBtn type='submit' form='form' label='Generate Document'>
               <i className='fas fa-file-signature' />
             </ToolbarBtn>
-            <ToolbarBtn onClick={this.toggleImportExportCollapsed}>
+            <ToolbarBtn
+              onClick={this.toggleImportExportCollapsed}
+              label='Import / Export'
+            >
               <i className='fas fa-file-import' />
             </ToolbarBtn>
           </Container>
