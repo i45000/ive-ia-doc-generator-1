@@ -3,25 +3,25 @@
 import React from 'react'
 import { Control } from 'react-redux-form/immutable'
 
-export const iaSupervisor = {
-  name: {
+export const iaCompany = {
+  chineseName: {
     required: true,
     initialValue: '',
     element: <Control.text />
   },
-  post: {
+  englishName: {
     required: true,
     initialValue: '',
     element: <Control.text />
   },
-  phone: {
+  address: {
     required: true,
     initialValue: '',
-    element: <Control.text type='number' min='10000000' max='99999999' />
+    element: <Control.text />
   },
-  email: {
+  nature: {
     required: true,
     initialValue: '',
-    element: <Control.text type='email' />
+    element: <Control.text />
   }
 }

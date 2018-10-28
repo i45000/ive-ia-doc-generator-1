@@ -8,11 +8,11 @@ import type { ActionType } from 'redux-actions'
 import { uiCreators, uiTypes } from './actions'
 
 type StateProps = {
-  sider: RecordOf<{ isCollapsed: boolean }>,
+  importExport: RecordOf<{ isCollapsed: boolean }>,
   console: RecordOf<{ isCollapsed: boolean }>
 }
 export const INITIAL_STATE: RecordOf<StateProps> = Record({
-  sider: Record({
+  importExport: Record({
     isCollapsed: true
   })(),
   console: Record({
@@ -20,10 +20,10 @@ export const INITIAL_STATE: RecordOf<StateProps> = Record({
   })()
 })()
 
-export const setSiderCollapsed = (
+export const setImportExportCollapsed = (
   state: typeof INITIAL_STATE,
-  { payload }: ActionType<typeof uiCreators.setSiderCollapsed>
-) => state.setIn(['sider', 'isCollapsed'], payload)
+  { payload }: ActionType<typeof uiCreators.setImportExportCollapsed>
+) => state.setIn(['importExport', 'isCollapsed'], payload)
 
 export const setConsoleCollapsed = (
   state: typeof INITIAL_STATE,
@@ -32,7 +32,7 @@ export const setConsoleCollapsed = (
 
 export const uiReducer = handleActions(
   {
-    [uiTypes.SET_SIDER_COLLAPSED]: setSiderCollapsed,
+    [uiTypes.SET_IMPORT_EXPORT_COLLAPSED]: setImportExportCollapsed,
     [uiTypes.SET_TERMINAL_COLLAPSED]: setConsoleCollapsed
   },
   INITIAL_STATE

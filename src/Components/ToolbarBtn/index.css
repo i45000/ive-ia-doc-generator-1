@@ -1,0 +1,19 @@
+.btn {
+  width: 31px;
+  height: 31px;
+  margin: 3px 3px;
+  margin-left: 0;
+  background-color: unset;
+  border: 0;
+  color: rgb(80, 80, 80);
+  transition: 0.5s all;
+  border-radius: 2px;
+}
+
+.btn.light {
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

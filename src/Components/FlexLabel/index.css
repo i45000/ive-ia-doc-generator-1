@@ -8,4 +8,5 @@
   display: inline-block;
   margin-right: 10px;
   min-width: 130px;
+  flex-shrink: 0;
 }

@@ -1,15 +1,13 @@
-.flexWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .box {
   background-color: #fff;
-  width: 100%;
-  max-width: 1000px;
-  margin: 20px 10px 0 10px;
+  margin: 20px 0;
   color: #333;
+}
+
+.titleWrapper {
+  position: sticky;
+  top: 37px;
+  background: #fff;
 }
 
 .title {

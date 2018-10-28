@@ -12,6 +12,7 @@ plugins:
   - eslint-plugin-ramda
 env:
   jest: true
+  browser: true
 rules:
   max-depth:
     - "error"

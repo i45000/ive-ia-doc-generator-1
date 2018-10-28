@@ -20,11 +20,11 @@ export const IASupervisor = (props: Props) => (
     <Fieldset model='.iaSupervisor'>
       <FlexLabel label='Name'>
         <span className={globalClasses.comment}>English</span>
-        {fields.Name}
+        {fields.name}
       </FlexLabel>
-      <FlexLabel label='Post'>{fields.Post}</FlexLabel>
-      <FlexLabel label='Phone'>{fields.Tel}</FlexLabel>
-      <FlexLabel label='Email'>{fields.Email}</FlexLabel>
+      <FlexLabel label='Post'>{fields.post}</FlexLabel>
+      <FlexLabel label='Phone'>{fields.phone}</FlexLabel>
+      <FlexLabel label='Email'>{fields.email}</FlexLabel>
     </Fieldset>
   </Box>
 )

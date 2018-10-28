@@ -3,6 +3,7 @@
 import classnames from 'classnames'
 import * as React from 'react'
 
+import { Container } from '../Container'
 import classes from './index.css'
 
 type Props = {
@@ -12,26 +13,28 @@ type Props = {
 }
 
 export const Box = (props: Props) => (
-  <div className={classes.flexWrapper}>
+  <Container>
     <div className={classes.box}>
-      {props.title && (
-        <div
-          className={classnames(classes.title, {
-            [classes.border]: props.percentage === undefined
-          })}
-        >
-          {props.title}
-        </div>
-      )}
-      {props.percentage !== undefined && (
-        <div className={classes.progressBg}>
+      <div className={classes.titleWrapper}>
+        {props.title && (
           <div
-            className={classes.progress}
-            style={{ width: `${props.percentage}%` }}
-          />
-        </div>
-      )}
+            className={classnames(classes.title, {
+              [classes.border]: props.percentage === undefined
+            })}
+          >
+            {props.title}
+          </div>
+        )}
+        {props.percentage !== undefined && (
+          <div className={classes.progressBg}>
+            <div
+              className={classes.progress}
+              style={{ width: `${props.percentage}%` }}
+            />
+          </div>
+        )}
+      </div>
       <div className={classes.body}>{props.children}</div>
     </div>
-  </div>
+  </Container>
 )

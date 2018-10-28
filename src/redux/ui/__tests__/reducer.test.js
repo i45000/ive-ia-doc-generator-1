@@ -4,20 +4,26 @@ import { uiCreators } from '../actions'
 import {
   INITIAL_STATE,
   setConsoleCollapsed,
-  setSiderCollapsed
+  setImportExportCollapsed
 } from '../reducer'
 
 describe('ui/reducer', () => {
-  test('#setSiderCollapsed', () => {
-    const trueAction = uiCreators.setSiderCollapsed(true)
-    const falseAction = uiCreators.setSiderCollapsed(false)
+  test('#setImportExportCollapsed', () => {
+    const trueAction = uiCreators.setImportExportCollapsed(true)
+    const falseAction = uiCreators.setImportExportCollapsed(false)
     const mockInitialState = INITIAL_STATE
 
-    const expectedTrueState = setSiderCollapsed(mockInitialState, trueAction)
-    const expectedFalseState = setSiderCollapsed(mockInitialState, falseAction)
+    const expectedTrueState = setImportExportCollapsed(
+      mockInitialState,
+      trueAction
+    )
+    const expectedFalseState = setImportExportCollapsed(
+      mockInitialState,
+      falseAction
+    )
 
-    expect(expectedTrueState).toHaveProperty('sider.isCollapsed', true)
-    expect(expectedFalseState).toHaveProperty('sider.isCollapsed', false)
+    expect(expectedTrueState).toHaveProperty('importExport.isCollapsed', true)
+    expect(expectedFalseState).toHaveProperty('importExport.isCollapsed', false)
   })
 
   test('#setConsoleCollapsed', () => {
