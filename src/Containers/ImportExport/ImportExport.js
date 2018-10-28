@@ -9,6 +9,7 @@ import { formCreators } from '../../redux'
 import { formSelector } from '../../redux/form/selectors'
 import { isImportExportCollapsedSelector } from '../../redux/ui/selectors'
 import { Export } from './Export'
+import { Import } from './Import'
 import classes from './index.css'
 
 type Props = {
@@ -26,6 +27,7 @@ const ImportExport = (props: Props) => (
       <div className={classes.column}>
         <div className={classes.columnWrapper}>
           <span className={classes.title}>Import</span>
+          <Import />
         </div>
       </div>
       <div className={classes.column}>
