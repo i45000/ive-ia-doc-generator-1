@@ -19,6 +19,9 @@ export class Import extends React.PureComponent<{}> {
 
   forceSelectAll = event => {
     event.target.select()
+    navigator.clipboard.readText().then(text => {
+      console.log('Pasted content: ', text)
+    })
   }
 
   render () {
