@@ -1,0 +1,12 @@
+.flexWrapper {
+  width: 100%;
+  display: flex;
+  line-height: 50px;
+}
+
+.label {
+  display: inline-block;
+  margin-right: 10px;
+  min-width: 130px;
+  flex-shrink: 0;
+}

@@ -1,38 +1,31 @@
 // @flow strict
 
-import "./style.css";
+import './style.css'
 
-import favicon from "assets/favicon.ico";
-import React from "react";
-import { render } from "react-dom";
-import { Helmet } from "react-helmet";
-import { MediaProvider } from "react-screen-size";
+import React from 'react'
+import { render } from 'react-dom'
+import { Helmet } from 'react-helmet'
+import { Provider } from 'react-redux'
 
-import { App } from "./App";
+import favicon from './assets/favicon.ico'
+import { App } from './Containers/App'
+import { rootReducer } from './redux'
+import { createStore } from './Utils/createStore'
 
-const root = document.getElementById("root");
+const store = createStore({ rootReducer })
 
-const medias = {
-  xs: "(max-width: 600px)",
-  sm: "(max-width: 960px) and (min-width: 601px)",
-  md: "(max-width: 1280px) and (min-width: 961px)",
-  lg: "(max-width: 1920px) and (min-width: 1281px)",
-  gtXs: "(min-width: 601px)",
-  gtSm: "(min-width: 961px)",
-  gtMd: "(min-width: 1281px)",
-  gtLg: "(min-width: 1921px)"
-};
+const root = document.getElementById('root')
 
 if (root) {
   render(
     <React.Fragment>
       <Helmet>
-        <link rel="shortcut icon" href={favicon} />
+        <link rel='shortcut icon' href={favicon} />
       </Helmet>
-      <MediaProvider medias={medias}>
+      <Provider store={store}>
         <App />
-      </MediaProvider>
+      </Provider>
     </React.Fragment>,
     root
-  );
+  )
 }
