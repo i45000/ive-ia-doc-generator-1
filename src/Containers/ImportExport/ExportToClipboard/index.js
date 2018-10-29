@@ -13,7 +13,7 @@ type State = {
   copied: boolean
 }
 
-export class CopyToClipBoard extends React.PureComponent<Props, State> {
+export class ExportToClipboard extends React.PureComponent<Props, State> {
   state = {
     copied: false
   }

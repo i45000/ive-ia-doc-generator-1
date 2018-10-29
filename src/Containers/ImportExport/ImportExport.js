@@ -5,7 +5,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { Container } from '../../Components/Container'
-import { formCreators } from '../../redux'
 import { formSelector } from '../../redux/form/selectors'
 import { isImportExportCollapsedSelector } from '../../redux/ui/selectors'
 import { Export } from './Export'
@@ -45,11 +44,4 @@ const mapStateToProps = state => ({
   isCollapsed: isImportExportCollapsedSelector(state)
 })
 
-const mapDispatchToProps = {
-  set: formCreators.setField
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ImportExport)
+export default connect(mapStateToProps)(ImportExport)

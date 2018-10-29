@@ -1,0 +1,23 @@
+.clipboardBtn {
+  background-color: #2196f3;
+  border: 0;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 237px;
+  transition: 0.5s;
+}
+
+.clipboardBtn:hover {
+  background-color: #1f88dd;
+}
+
+.clipboardBtn.invalid {
+  background-color: #f44336;
+  cursor: not-allowed;
+}
+
+.clipboardBtn i {
+  margin-right: 10px;
+}
