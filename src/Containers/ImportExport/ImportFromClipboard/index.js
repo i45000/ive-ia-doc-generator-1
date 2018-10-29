@@ -60,7 +60,7 @@ export class ImportFromClipboard extends React.PureComponent<Props, State> {
         ) : (
           <React.Fragment>
             <i className='fas fa-clipboard' />
-            Get From Clipboard
+            Import From Clipboard
           </React.Fragment>
         )}
       </button>

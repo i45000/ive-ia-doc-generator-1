@@ -13,7 +13,7 @@ type StateProps = {
 }
 export const INITIAL_STATE: RecordOf<StateProps> = Record({
   importExport: Record({
-    isCollapsed: false
+    isCollapsed: true
   })(),
   console: Record({
     isCollapsed: true
