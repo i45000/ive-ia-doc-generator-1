@@ -9,7 +9,7 @@ type Props = {
   formData: Object
 }
 
-export class SaveAsFile extends React.PureComponent<Props> {
+export class ExportToJson extends React.PureComponent<Props> {
   download = () => {
     const data = JSON.stringify(this.props.formData, null, 2)
     const blob = new Blob([data], {

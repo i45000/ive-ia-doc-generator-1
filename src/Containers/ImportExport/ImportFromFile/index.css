@@ -1,0 +1,35 @@
+.dropZone {
+  cursor: pointer;
+  border: 2px #7a7a7a dashed;
+  color: #7a7a7a;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 200px;
+  height: 100px;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropZone:hover {
+  border: 2px #535353 dashed;
+  color: #535353;
+}
+
+.dropZone.invalid {
+  border: 2px #f44336 dashed;
+  color: #f44336;
+  cursor: not-allowed;
+}
+
+.dropZone.success {
+  border: 2px #1f88dd dashed;
+  color: #1f88dd;
+  cursor: not-allowed;
+}
+
+.dropZone i {
+  margin-right: 10px;
+}

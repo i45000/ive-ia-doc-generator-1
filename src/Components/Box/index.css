@@ -5,6 +5,7 @@
 }
 
 .titleWrapper {
+  position: -webkit-sticky;
   position: sticky;
   top: 37px;
   background: #fff;
