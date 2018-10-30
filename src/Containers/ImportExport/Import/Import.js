@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 import { inputMap } from '../../../inputMap'
 import { formCreators } from '../../../redux'
-import { validateImport } from '../../../Utils/formHelper'
+import { validateImport } from '../../../utils/formHelper'
 import { ImportFromClipboard } from '../ImportFromClipboard'
 import { ImportFromFile } from '../ImportFromFile'
 import classes from './index.css'

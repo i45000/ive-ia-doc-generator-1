@@ -12,7 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import favicon from './assets/favicon.ico'
 import { App } from './Containers/App'
 import { rootReducer } from './redux'
-import { createStore } from './Utils/createStore'
+import { createStore } from './utils/createStore'
 
 const store = createStore({ rootReducer })
 const persistor = persistStore(store)

@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { ToolbarBtn } from '../../../Components/ToolbarBtn'
 import { inputMap } from '../../../inputMap'
 import { formCreators } from '../../../redux'
-import { getInitState } from '../../../Utils/formHelper'
+import { getInitState } from '../../../utils/formHelper'
 
 type Props = {
   setFields: (string, any) => void

@@ -13,7 +13,7 @@ import { INITIAL_STATE } from '../../redux/form/reducer'
 import {
   getCompletePercentage,
   getInitPercentage
-} from '../../Utils/formHelper'
+} from '../../utils/formHelper'
 
 type State = {
   percentage: { [string]: number }

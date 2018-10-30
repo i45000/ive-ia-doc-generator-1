@@ -6,7 +6,7 @@ import { Fieldset } from 'react-redux-form'
 import { Box } from '../../Components/Box'
 import { FlexLabel } from '../../Components/FlexLabel'
 import { inputMap } from '../../inputMap'
-import { getFields } from '../../Utils/formHelper'
+import { getFields } from '../../utils/formHelper'
 
 type Props = {
   percentage: number
