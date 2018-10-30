@@ -41,10 +41,13 @@ class Import extends React.PureComponent<Props, State> {
             validateAndSet={this.validateAndSet}
             isDarkTheme={this.props.isDarkTheme}
           />
-          <ImportFromClipboard
-            validateAndSet={this.validateAndSet}
-            isDarkTheme={this.props.isDarkTheme}
-          />
+
+          {navigator.clipboard !== undefined ? (
+            <ImportFromClipboard
+              validateAndSet={this.validateAndSet}
+              isDarkTheme={this.props.isDarkTheme}
+            />
+          ) : null}
         </div>
       </React.Fragment>
     )

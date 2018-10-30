@@ -11,14 +11,14 @@ export const Instruction = () => (
       <li>
         Fill in this form
         <div className={classes.or}>or</div>
-        Load existing json above
+        Import existing data
       </li>
       <li>
-        Press &quot;Generate IA Doc&quot;
+        Press &quot;Generate Document&quot;
         <div className={classes.or}>or</div>
-        export as JSON (If you want to edit the info later)
+        Export as JSON for future edit or share
       </li>
-      <li>Sign the IA document at page 6, 7, 11, 13, 14, 16, 18</li>
+      <li>Sign the Document at page 6, 7, 11, 13, 14, 16, 18</li>
     </ol>
   </Box>
 )
