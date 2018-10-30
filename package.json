@@ -18,7 +18,9 @@
     "react-redux": "^5.1.0",
     "react-redux-form": "^1.16.10",
     "redux": "^4.0.1",
-    "redux-actions": "^2.6.3"
+    "redux-actions": "^2.6.3",
+    "redux-persist": "^5.10.0",
+    "redux-persist-transform-immutable": "^5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
