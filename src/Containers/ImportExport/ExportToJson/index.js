@@ -13,7 +13,7 @@ export class ExportToJson extends React.PureComponent<Props> {
   download = () => {
     const data = JSON.stringify(this.props.formData, null, 2)
     const blob = new Blob([data], {
-      type: 'text/json;charset=utf-8'
+      type: 'application/json;charset=utf-8'
     })
     FileSaver.saveAs(blob, 'exportedData.json')
   }
