@@ -32,7 +32,6 @@ class Import extends React.PureComponent<Props, State> {
       <React.Fragment>
         <div className={classes.container}>
           <ImportFromFile validateAndSet={this.validateAndSet} />
-          <span className={classes.or}>Or</span>
           <ImportFromClipboard validateAndSet={this.validateAndSet} />
         </div>
       </React.Fragment>
