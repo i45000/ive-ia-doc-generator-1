@@ -3,5 +3,5 @@
 export const isImportExportCollapsedSelector = (state: Object) =>
   state.ui.getIn(['importExport', 'isCollapsed'])
 
-export const isConsoleCollapsedSelector = (state: Object) =>
-  state.ui.getIn(['console', 'isCollapsed'])
+export const isDarkThemeSelector = (state: Object) =>
+  state.ui.getIn(['theme', 'dark'])

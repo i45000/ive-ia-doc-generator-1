@@ -7,6 +7,11 @@
   top: 37px;
   max-height: calc(100vh - 37px - 50px);
   overflow: auto;
+  transition: background-color 0.5s;
+}
+
+.container.dark {
+  background-color: #333;
 }
 
 .container.collapsed {
@@ -28,6 +33,11 @@
 .title {
   font-size: 20px;
   margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+.dark .title {
+  color: #e6e6e6;
 }
 
 .columnWrapper {

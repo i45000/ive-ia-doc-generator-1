@@ -1,5 +1,6 @@
 // @flow strict
 
+import classNames from 'classnames'
 import { fromJS } from 'immutable'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -17,7 +18,8 @@ type State = {
 }
 
 type Props = {
-  setFields: (string, any) => void
+  setFields: (string, any) => void,
+  isDarkTheme: boolean
 }
 
 class Import extends React.PureComponent<Props, State> {
@@ -30,9 +32,19 @@ class Import extends React.PureComponent<Props, State> {
   render () {
     return (
       <React.Fragment>
-        <div className={classes.container}>
-          <ImportFromFile validateAndSet={this.validateAndSet} />
-          <ImportFromClipboard validateAndSet={this.validateAndSet} />
+        <div
+          className={classNames(classes.container, {
+            [classes.dark]: this.props.isDarkTheme
+          })}
+        >
+          <ImportFromFile
+            validateAndSet={this.validateAndSet}
+            isDarkTheme={this.props.isDarkTheme}
+          />
+          <ImportFromClipboard
+            validateAndSet={this.validateAndSet}
+            isDarkTheme={this.props.isDarkTheme}
+          />
         </div>
       </React.Fragment>
     )

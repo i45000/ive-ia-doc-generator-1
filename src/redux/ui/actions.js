@@ -4,7 +4,7 @@ import { createAction } from 'redux-actions'
 
 export const uiTypes = {
   SET_IMPORT_EXPORT_COLLAPSED: 'SET_IMPORT_EXPORT_COLLAPSED',
-  SET_TERMINAL_COLLAPSED: 'SET_TERMINAL_COLLAPSED'
+  SET_COLOR_THEME: 'SET_COLOR_THEME'
 }
 
 const setImportExportCollapsed = createAction(
@@ -12,12 +12,12 @@ const setImportExportCollapsed = createAction(
   (collapsed: boolean) => collapsed
 )
 
-const setConsoleCollapsed = createAction(
-  uiTypes.SET_TERMINAL_COLLAPSED,
+const setColorTheme = createAction(
+  uiTypes.SET_COLOR_THEME,
   (collapsed: boolean) => collapsed
 )
 
 export const uiCreators = {
   setImportExportCollapsed,
-  setConsoleCollapsed
+  setColorTheme
 }

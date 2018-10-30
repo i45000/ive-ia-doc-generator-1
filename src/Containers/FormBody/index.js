@@ -32,11 +32,6 @@ export class FormBody extends React.PureComponent<{}, State> {
   handleChange = (values: Object) => {
     const percentageObj = getCompletePercentage(inputMap, values.toJS())
     this.setState({ percentage: percentageObj })
-    console.log('change', values.toJS())
-  }
-
-  handleUpdate = (form: Object) => {
-    console.log('update', form)
   }
 
   handleSubmit = (values: Object) => {

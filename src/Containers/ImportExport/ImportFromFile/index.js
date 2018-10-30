@@ -14,7 +14,8 @@ type State = {
 }
 
 type Props = {
-  validateAndSet: Object => void
+  validateAndSet: Object => void,
+  isDarkTheme: boolean
 }
 
 export class ImportFromFile extends React.PureComponent<Props, State> {
@@ -70,6 +71,7 @@ export class ImportFromFile extends React.PureComponent<Props, State> {
         multiple={false}
         disabled={zoneObj.disabled}
         className={classNames(classes.dropZone, {
+          [classes.dark]: this.props.isDarkTheme,
           [classes.invalid]: this.state.status === dropZoneType.INVALID,
           [classes.success]: this.state.status === dropZoneType.SUCCESS
         })}

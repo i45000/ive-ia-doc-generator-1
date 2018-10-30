@@ -12,9 +12,19 @@
   justify-content: center;
 }
 
+.dropZone.dark {
+  color: #e6e6e6;
+  border: 2px #e6e6e6 dashed;
+}
+
 .dropZone:hover {
   border: 2px #535353 dashed;
   color: #535353;
+}
+
+.dropZone.dark:hover {
+  border: 2px #b6b6b6 dashed;
+  color: #b6b6b6;
 }
 
 .dropZone.invalid {

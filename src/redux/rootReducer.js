@@ -11,8 +11,7 @@ import { uiReducer } from './ui/reducer'
 const rootPersistConfig = {
   transforms: [immutableTransform()],
   key: 'redux',
-  storage: storage,
-  blacklist: ['ui', 'importExport']
+  storage: storage
 }
 
 const rootReducer = combineReducers({
@@ -20,5 +19,5 @@ const rootReducer = combineReducers({
   ...formReducer
 })
 
-// @no-flow
+// $FlowFixMe
 export default persistReducer(rootPersistConfig, rootReducer)

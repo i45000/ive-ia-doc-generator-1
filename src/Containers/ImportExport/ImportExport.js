@@ -13,26 +13,31 @@ import classes from './index.css'
 
 type Props = {
   form: Object,
-  isCollapsed: boolean
+  isCollapsed: boolean,
+  isDarkTheme: boolean
 }
 
 const ImportExport = (props: Props) => (
   <div
     className={classNames(classes.container, {
-      [classes.collapsed]: props.isCollapsed
+      [classes.collapsed]: props.isCollapsed,
+      [classes.dark]: props.isDarkTheme
     })}
   >
     <Container>
       <div className={classes.column}>
         <div className={classes.columnWrapper}>
           <span className={classes.title}>Import</span>
-          <Import />
+          <Import isDarkTheme={props.isDarkTheme} />
         </div>
       </div>
       <div className={classes.column}>
         <div className={classes.columnWrapper}>
           <span className={classes.title}>Export</span>
-          <Export formData={props.form.toJS()} />
+          <Export
+            formData={props.form.toJS()}
+            isDarkTheme={props.isDarkTheme}
+          />
         </div>
       </div>
     </Container>
