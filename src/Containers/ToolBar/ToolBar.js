@@ -13,7 +13,6 @@ import { ResetFromBtn } from './ResetFromBtn'
 import { ToggleThemeBtn } from './ToggleThemeBtn'
 
 type Props = {
-  children: React.Node,
   isImportExportCollapsed: boolean,
   setImportExportCollapsed: boolean => void,
   isDarkTheme: boolean
@@ -37,35 +36,31 @@ class ToolBar extends React.PureComponent<Props> {
   }
 
   render () {
-    const { children } = this.props
     return (
-      <div className={classes.wrapper}>
-        <div
-          className={classNames(classes.toolBar, {
-            [classes.dark]: this.props.isDarkTheme
-          })}
-        >
-          <Container>
-            <ToolbarBtn
-              type='submit'
-              form='form'
-              label='Generate Document'
-              onClick={this.collapseWindows}
-            >
-              <i className='fas fa-file-signature' />
-            </ToolbarBtn>
-            <div className={classes.spacer} />
-            <ToolbarBtn
-              onClick={this.toggleImportExportCollapsed}
-              label='Import / Export'
-            >
-              <i className='fas fa-file-import' />
-            </ToolbarBtn>
-            <ResetFromBtn />
-            <ToggleThemeBtn />
-          </Container>
-        </div>
-        {children}
+      <div
+        className={classNames(classes.toolBar, {
+          [classes.dark]: this.props.isDarkTheme
+        })}
+      >
+        <Container>
+          <ToolbarBtn
+            type='submit'
+            form='form'
+            label='Generate Document'
+            onClick={this.collapseWindows}
+          >
+            <i className='fas fa-file-signature' />
+          </ToolbarBtn>
+          <div className={classes.spacer} />
+          <ToolbarBtn
+            onClick={this.toggleImportExportCollapsed}
+            label='Import / Export'
+          >
+            <i className='fas fa-file-import' />
+          </ToolbarBtn>
+          <ResetFromBtn />
+          <ToggleThemeBtn />
+        </Container>
       </div>
     )
   }

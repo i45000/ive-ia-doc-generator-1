@@ -5,7 +5,6 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 
 import { isDarkThemeSelector } from '../../redux/ui/selectors'
-import { Container } from '../Container'
 import classes from './index.css'
 
 type Props = {
@@ -16,32 +15,28 @@ type Props = {
 }
 
 const Box = (props: Props) => (
-  <Container>
-    <div
-      className={classNames(classes.box, { [classes.dark]: props.isDarkTheme })}
-    >
-      <div className={classes.titleWrapper}>
-        {props.title && (
-          <div
-            className={classNames(classes.title, {
-              [classes.border]: props.percentage === undefined
-            })}
-          >
-            {props.title}
-          </div>
-        )}
-        {props.percentage !== undefined && (
-          <div className={classes.progressBg}>
-            <div
-              className={classes.progress}
-              style={{ width: `${props.percentage}%` }}
-            />
-          </div>
-        )}
+  <div
+    className={classNames(classes.box, { [classes.dark]: props.isDarkTheme })}
+  >
+    <div className={classes.titleWrapper}>
+      <div
+        className={classNames(classes.title, {
+          [classes.border]: props.percentage === undefined
+        })}
+      >
+        {props.title}
       </div>
-      <div className={classes.body}>{props.children}</div>
+      {props.percentage !== undefined && (
+        <div className={classes.progressBg}>
+          <div
+            className={classes.progress}
+            style={{ width: `${props.percentage}%` }}
+          />
+        </div>
+      )}
     </div>
-  </Container>
+    <div className={classes.body}>{props.children}</div>
+  </div>
 )
 
 const mapStateToProps = state => ({
