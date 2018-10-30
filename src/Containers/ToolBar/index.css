@@ -20,3 +20,16 @@
   background-color: #222;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
+
+.spacer {
+  border: 1px #e9e9e9 solid;
+  float: left;
+  height: 25px;
+  margin-top: 5px;
+  margin-right: 5px;
+  transition: 0.5s;
+}
+
+.dark .spacer {
+  border: 1px #3e4349 solid;
+}

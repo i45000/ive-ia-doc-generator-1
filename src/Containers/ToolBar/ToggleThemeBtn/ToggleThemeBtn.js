@@ -12,7 +12,7 @@ type Props = {
   setColorTheme: boolean => void
 }
 
-class ToolBar extends React.PureComponent<Props> {
+class ToggleThemeBtn extends React.PureComponent<Props> {
   toggleImportExportCollapsed = () => {
     this.props.setColorTheme(!this.props.isDarkTheme)
   }
@@ -40,4 +40,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ToolBar)
+)(ToggleThemeBtn)

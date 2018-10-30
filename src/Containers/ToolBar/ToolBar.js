@@ -9,6 +9,7 @@ import { ToolbarBtn } from '../../Components/ToolbarBtn'
 import { uiCreators } from '../../redux'
 import { isImportExportCollapsedSelector } from '../../redux/ui/selectors'
 import classes from './index.css'
+import { ResetFromBtn } from './ResetFromBtn'
 import { ToggleThemeBtn } from './ToggleThemeBtn'
 
 type Props = {
@@ -25,6 +26,10 @@ class ToolBar extends React.PureComponent<Props> {
 
   toggleImportExportCollapsed = () => {
     this.props.setImportExportCollapsed(!this.props.isImportExportCollapsed)
+  }
+
+  resetForm = () => {
+    this.collapseWindows()
   }
 
   collapseWindows = () => {
@@ -49,12 +54,14 @@ class ToolBar extends React.PureComponent<Props> {
             >
               <i className='fas fa-file-signature' />
             </ToolbarBtn>
+            <div className={classes.spacer} />
             <ToolbarBtn
               onClick={this.toggleImportExportCollapsed}
               label='Import / Export'
             >
               <i className='fas fa-file-import' />
             </ToolbarBtn>
+            <ResetFromBtn />
             <ToggleThemeBtn />
           </Container>
         </div>
