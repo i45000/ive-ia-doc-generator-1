@@ -20,13 +20,22 @@ class ToolBar extends React.PureComponent<Props> {
     this.props.setImportExportCollapsed(!this.props.isImportExportCollapsed)
   }
 
+  collapseWindows = () => {
+    this.props.setImportExportCollapsed(true)
+  }
+
   render () {
     const { children } = this.props
     return (
       <div className={classes.wrapper}>
         <div className={classes.toolBar}>
           <Container>
-            <ToolbarBtn type='submit' form='form' label='Generate Document'>
+            <ToolbarBtn
+              type='submit'
+              form='form'
+              label='Generate Document'
+              onClick={this.collapseWindows}
+            >
               <i className='fas fa-file-signature' />
             </ToolbarBtn>
             <ToolbarBtn
