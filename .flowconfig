@@ -16,6 +16,7 @@ module.file_ext=.jsx
 module.file_ext=.css
 module.file_ext=.scss
 module.file_ext=.ico
+module.file_ext=.docx
 module.name_mapper='^inputFields\/\(.*\)$' ->'<PROJECT_ROOT>/src/modules/_shared/components/inputFields/\1'
 module.name_mapper='^assets' ->'<PROJECT_ROOT>/src/assets'
 

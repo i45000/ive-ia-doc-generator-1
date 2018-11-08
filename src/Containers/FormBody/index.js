@@ -11,6 +11,7 @@ import { SiteVisit } from '../../Components/SiteVisit'
 import { inputMap } from '../../inputMap'
 import { INITIAL_STATE } from '../../redux/form/reducer'
 import {
+  generateFile,
   getCompletePercentage,
   getInitPercentage
 } from '../../utils/formHelper'
@@ -35,7 +36,7 @@ export class FormBody extends React.PureComponent<{}, State> {
   }
 
   handleSubmit = (values: Object) => {
-    console.log('submit', values.toJS())
+    generateFile(values.toJS())
   }
 
   render () {
