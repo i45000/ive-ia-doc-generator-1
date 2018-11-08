@@ -11,7 +11,7 @@ type Props = {
 
 export const FlexLabel = (props: Props) => (
   <div className={classes.flexWrapper}>
-    {props.label && <label className={classes.label}>{props.label}</label>}
+    <label className={classes.label}>{props.label}</label>
     {props.children}
   </div>
 )

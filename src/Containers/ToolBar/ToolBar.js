@@ -1,5 +1,6 @@
 // @flow strict
 
+import classNames from 'classnames'
 import * as React from 'react'
 import { connect } from 'react-redux'
 
@@ -8,36 +9,58 @@ import { ToolbarBtn } from '../../Components/ToolbarBtn'
 import { uiCreators } from '../../redux'
 import { isImportExportCollapsedSelector } from '../../redux/ui/selectors'
 import classes from './index.css'
+import { ResetFromBtn } from './ResetFromBtn'
+import { ToggleThemeBtn } from './ToggleThemeBtn'
 
 type Props = {
-  children: React.Node,
   isImportExportCollapsed: boolean,
-  setImportExportCollapsed: boolean => void
+  setImportExportCollapsed: boolean => void,
+  isDarkTheme: boolean
 }
 
 class ToolBar extends React.PureComponent<Props> {
+  componentDidMount () {
+    this.collapseWindows()
+  }
+
   toggleImportExportCollapsed = () => {
     this.props.setImportExportCollapsed(!this.props.isImportExportCollapsed)
   }
 
+  resetForm = () => {
+    this.collapseWindows()
+  }
+
+  collapseWindows = () => {
+    this.props.setImportExportCollapsed(true)
+  }
+
   render () {
-    const { children } = this.props
     return (
-      <div className={classes.wrapper}>
-        <div className={classes.toolBar}>
-          <Container>
-            <ToolbarBtn type='submit' form='form' label='Generate Document'>
-              <i className='fas fa-file-signature' />
-            </ToolbarBtn>
-            <ToolbarBtn
-              onClick={this.toggleImportExportCollapsed}
-              label='Import / Export'
-            >
-              <i className='fas fa-file-import' />
-            </ToolbarBtn>
-          </Container>
-        </div>
-        {children}
+      <div
+        className={classNames(classes.toolBar, {
+          [classes.dark]: this.props.isDarkTheme
+        })}
+      >
+        <Container>
+          <ToolbarBtn
+            type='submit'
+            form='form'
+            label='Generate Document'
+            onClick={this.collapseWindows}
+          >
+            <i className='fas fa-file-signature' />
+          </ToolbarBtn>
+          <div className={classes.spacer} />
+          <ToolbarBtn
+            onClick={this.toggleImportExportCollapsed}
+            label='Import / Export'
+          >
+            <i className='fas fa-file-import' />
+          </ToolbarBtn>
+          <ResetFromBtn />
+          <ToggleThemeBtn />
+        </Container>
       </div>
     )
   }

@@ -7,7 +7,7 @@ import { Box } from '../../Components/Box'
 import { FlexLabel } from '../../Components/FlexLabel'
 import { inputMap } from '../../inputMap'
 import globalClasses from '../../style.css'
-import { getFields } from '../../Utils/formHelper'
+import { getFields } from '../../utils/formHelper'
 
 type Props = {
   percentage: number

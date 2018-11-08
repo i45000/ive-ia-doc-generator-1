@@ -1,9 +1,14 @@
 // @flow strict
 
+import Docxtemplater from 'docxtemplater'
+import FileSaver from 'file-saver'
 import { fromJS } from 'immutable'
+import JSZip from 'jszip'
+import JSZipUtils from 'jszip-utils'
 import * as R from 'ramda'
 import React from 'react'
 
+import templateDocument from '../assets/template-document.docx'
 import { inputMap as mapReference } from '../inputMap'
 
 export const getInitState: (typeof mapReference) => any = R.compose(
@@ -43,7 +48,7 @@ export const getCompletePercentage = (
   }, {})
 
 export const validateImport = (
-  inputObject: Object,
+  inputObject: { [string]: { [string]: any } },
   inputMap: typeof mapReference
 ) => {
   const hasError = R.keys(inputMap).some(categoryKey => {
@@ -55,4 +60,32 @@ export const validateImport = (
     })
   })
   return hasError === false
+}
+
+export const generateFile = (formValue: { [string]: { [string]: any } }) => {
+  JSZipUtils.getBinaryContent(templateDocument, (error, content) => {
+    if (error) throw error
+    const zip = new JSZip(content)
+    // eslint-disable-next-line
+    let doc = new Docxtemplater().loadZip(zip).setOptions({
+      parser: tag => ({
+        get: (scope: Object) =>
+          tag === '.' ? scope : R.path(R.split('.', tag), scope)
+      })
+    })
+    doc.setData(formValue)
+
+    try {
+      doc.render()
+    } catch (e) {
+      throw e
+    }
+
+    const out = doc.getZip().generate({
+      type: 'blob',
+      mimeType:
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    })
+    FileSaver.saveAs(out, 'output.docx')
+  })
 }

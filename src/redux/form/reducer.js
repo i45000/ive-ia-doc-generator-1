@@ -3,7 +3,7 @@
 import { createForms } from 'react-redux-form/immutable'
 
 import { inputMap } from '../../inputMap'
-import { getInitState } from '../../Utils/formHelper'
+import { getInitState } from '../../utils/formHelper'
 
 export const INITIAL_STATE = getInitState(inputMap)
 

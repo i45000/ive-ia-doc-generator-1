@@ -5,8 +5,10 @@
   border-radius: 2px;
   font-size: 20px;
   padding: 10px 20px;
-  width: 250px;
+  margin-top: 10px;
+  width: 100%;
   transition: 0.5s;
+  flex-shrink: 0;
 }
 
 .clipboardBtn:hover {

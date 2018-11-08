@@ -3,10 +3,17 @@
   box-shadow: 0 0 15px rgba(170, 170, 170, 0.5);
   z-index: 8;
   width: 100%;
-  position: absolute;
+  position: -webkit-sticky;
+  position: sticky;
   top: 37px;
   max-height: calc(100vh - 37px - 50px);
   overflow: auto;
+  transition: background-color 0.5s;
+}
+
+.container.dark {
+  background-color: #333;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .container.collapsed {
@@ -28,6 +35,11 @@
 .title {
   font-size: 20px;
   margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+.dark .title {
+  color: #e6e6e6;
 }
 
 .columnWrapper {

@@ -3,7 +3,7 @@
 import { uiCreators } from '../actions'
 import {
   INITIAL_STATE,
-  setConsoleCollapsed,
+  setColorTheme,
   setImportExportCollapsed
 } from '../reducer'
 
@@ -26,18 +26,15 @@ describe('ui/reducer', () => {
     expect(expectedFalseState).toHaveProperty('importExport.isCollapsed', false)
   })
 
-  test('#setConsoleCollapsed', () => {
-    const trueAction = uiCreators.setConsoleCollapsed(true)
-    const falseAction = uiCreators.setConsoleCollapsed(false)
+  test('#setColorTheme', () => {
+    const trueAction = uiCreators.setColorTheme(true)
+    const falseAction = uiCreators.setColorTheme(false)
     const mockInitialState = INITIAL_STATE
 
-    const expectedTrueState = setConsoleCollapsed(mockInitialState, trueAction)
-    const expectedFalseState = setConsoleCollapsed(
-      mockInitialState,
-      falseAction
-    )
+    const expectedTrueState = setColorTheme(mockInitialState, trueAction)
+    const expectedFalseState = setColorTheme(mockInitialState, falseAction)
 
-    expect(expectedTrueState).toHaveProperty('console.isCollapsed', true)
-    expect(expectedFalseState).toHaveProperty('console.isCollapsed', false)
+    expect(expectedTrueState).toHaveProperty('theme.dark', true)
+    expect(expectedFalseState).toHaveProperty('theme.dark', false)
   })
 })

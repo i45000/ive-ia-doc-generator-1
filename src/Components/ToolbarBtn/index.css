@@ -1,24 +1,26 @@
 .wrapper {
-  display: inline-block;
   position: relative;
+  float: left;
 }
 
 .btn {
   width: 31px;
   height: 31px;
+  line-height: 31px;
   margin: 3px 3px;
   margin-left: 0;
   background-color: unset;
   border: 0;
   color: #505050;
   border-radius: 2px;
+  transition: 0.5s;
 }
 
 .label {
   position: absolute;
   top: 37px;
   background-color: #303030;
-  color: #fff;
+  color: #e6e6e6;
   border-radius: 2px;
   padding: 3px 10px;
   opacity: 0;
@@ -27,8 +29,16 @@
   white-space: nowrap;
 }
 
+.label.dark {
+  background-color: #515254;
+}
+
 .btn.light {
-  color: #fff;
+  color: #e6e6e6;
+}
+
+.btn.light:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover + .label {

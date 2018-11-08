@@ -1,6 +1,13 @@
 .header {
   background-color: #2196f3;
   height: 50px;
+  position: relative;
+  transition: 0.5s;
+  z-index: 20;
+}
+
+.header.dark {
+  background-color: #151515;
 }
 
 .logo {
@@ -8,6 +15,12 @@
   padding: 10px 8px 10px 12px;
   background-color: #1976d2;
   float: left;
+  transition: 0.5s;
+}
+
+.dark .logo {
+  background-color: #2d3034;
+  color: #e6e6e6;
 }
 
 .ghLogo {
@@ -18,8 +31,18 @@
   transition: 0.5s;
 }
 
+.dark .ghLogo {
+  background-color: #2d3034;
+  color: #e6e6e6;
+}
+
 .ghLogo:hover {
   background-color: rgb(28, 129, 218);
+}
+
+.dark .ghLogo:hover {
+  background-color: rgb(0, 0, 0);
+  color: #e6e6e6;
 }
 
 .title {
@@ -29,4 +52,8 @@
   font-size: 20px;
   padding-left: 15px;
   font-weight: bold;
+}
+
+.dark .title {
+  color: #e6e6e6;
 }

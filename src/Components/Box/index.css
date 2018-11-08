@@ -2,23 +2,44 @@
   background-color: #fff;
   margin-top: 20px;
   color: #333;
+  transition: 0.5s;
+}
+
+.box.dark {
+  background-color: #222;
+  color: #e6e6e6;
 }
 
 .titleWrapper {
   position: -webkit-sticky;
   position: sticky;
   top: 37px;
-  background: #fff;
+  background-color: #fff;
+  transition: 0.5s;
+}
+
+.dark .titleWrapper {
+  background-color: #222;
 }
 
 .title {
   font-size: 20px;
   padding: 10px 15px;
   font-weight: bold;
+  color: #333;
+}
+
+.dark .title {
+  color: #e6e6e6;
 }
 
 .title.border {
   border-bottom: rgb(216, 216, 216) 1px solid;
+  transition: 0.5s;
+}
+
+.dark .title.border {
+  border-bottom: rgb(61, 61, 61) 1px solid;
 }
 
 .body {

@@ -1,0 +1,25 @@
+.btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  font-size: 20px;
+  padding: 10px 17px;
+  border-radius: 3px;
+  color: #fff;
+  margin: 15px;
+  transition: 0.5s;
+  background-color: #2196f3;
+}
+
+.btn.dark {
+  background-color: #3b3a39;
+}
+
+.btn:hover {
+  background-color: #1976d2;
+}
+
+.btn.dark:hover {
+  background-color: #30302f;
+}

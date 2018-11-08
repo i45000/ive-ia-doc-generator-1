@@ -1,12 +1,13 @@
 // @flow strict
 
+import classNames from 'classnames'
 import { fromJS } from 'immutable'
 import React from 'react'
 import { connect } from 'react-redux'
 
 import { inputMap } from '../../../inputMap'
 import { formCreators } from '../../../redux'
-import { validateImport } from '../../../Utils/formHelper'
+import { validateImport } from '../../../utils/formHelper'
 import { ImportFromClipboard } from '../ImportFromClipboard'
 import { ImportFromFile } from '../ImportFromFile'
 import classes from './index.css'
@@ -17,7 +18,8 @@ type State = {
 }
 
 type Props = {
-  setFields: (string, any) => void
+  setFields: (string, any) => void,
+  isDarkTheme: boolean
 }
 
 class Import extends React.PureComponent<Props, State> {
@@ -30,10 +32,22 @@ class Import extends React.PureComponent<Props, State> {
   render () {
     return (
       <React.Fragment>
-        <div className={classes.container}>
-          <ImportFromFile validateAndSet={this.validateAndSet} />
-          <span className={classes.or}>Or</span>
-          <ImportFromClipboard validateAndSet={this.validateAndSet} />
+        <div
+          className={classNames(classes.container, {
+            [classes.dark]: this.props.isDarkTheme
+          })}
+        >
+          <ImportFromFile
+            validateAndSet={this.validateAndSet}
+            isDarkTheme={this.props.isDarkTheme}
+          />
+
+          {navigator.clipboard !== undefined ? (
+            <ImportFromClipboard
+              validateAndSet={this.validateAndSet}
+              isDarkTheme={this.props.isDarkTheme}
+            />
+          ) : null}
         </div>
       </React.Fragment>
     )

@@ -9,14 +9,14 @@ import { uiCreators, uiTypes } from './actions'
 
 type StateProps = {
   importExport: RecordOf<{ isCollapsed: boolean }>,
-  console: RecordOf<{ isCollapsed: boolean }>
+  theme: RecordOf<{ dark: boolean }>
 }
 export const INITIAL_STATE: RecordOf<StateProps> = Record({
   importExport: Record({
     isCollapsed: true
   })(),
-  console: Record({
-    isCollapsed: true
+  theme: Record({
+    dark: false
   })()
 })()
 
@@ -25,15 +25,15 @@ export const setImportExportCollapsed = (
   { payload }: ActionType<typeof uiCreators.setImportExportCollapsed>
 ) => state.setIn(['importExport', 'isCollapsed'], payload)
 
-export const setConsoleCollapsed = (
+export const setColorTheme = (
   state: typeof INITIAL_STATE,
-  { payload }: ActionType<typeof uiCreators.setConsoleCollapsed>
-) => state.setIn(['console', 'isCollapsed'], payload)
+  { payload }: ActionType<typeof uiCreators.setColorTheme>
+) => state.setIn(['theme', 'dark'], payload)
 
 export const uiReducer = handleActions(
   {
     [uiTypes.SET_IMPORT_EXPORT_COLLAPSED]: setImportExportCollapsed,
-    [uiTypes.SET_TERMINAL_COLLAPSED]: setConsoleCollapsed
+    [uiTypes.SET_COLOR_THEME]: setColorTheme
   },
   INITIAL_STATE
 )

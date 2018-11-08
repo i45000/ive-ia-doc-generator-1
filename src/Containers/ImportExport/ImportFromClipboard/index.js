@@ -1,13 +1,15 @@
 // @flow strict
 
 import classNames from 'classnames'
+import * as R from 'ramda'
 import React from 'react'
 
+import { clipboardBtnMap, clipboardBtnType } from './clipboardBtnMap'
+import type { ClipboardBtnType } from './clipboardBtnMap'
 import classes from './index.css'
 
 type State = {
-  invalid: boolean,
-  success: boolean
+  status: ClipboardBtnType
 }
 
 type Props = {
@@ -16,8 +18,7 @@ type Props = {
 
 export class ImportFromClipboard extends React.PureComponent<Props, State> {
   state = {
-    invalid: false,
-    success: false
+    status: clipboardBtnType.DEFAULT
   }
 
   getDataFromClipboard = async () => {
@@ -25,45 +26,31 @@ export class ImportFromClipboard extends React.PureComponent<Props, State> {
       const clipboardText = await navigator.clipboard.readText()
       const textToObject = JSON.parse(clipboardText)
       this.props.validateAndSet(textToObject)
-      this.setState({ success: true })
+      this.setState({ status: clipboardBtnType.SUCCESS })
       setTimeout(() => {
-        this.setState({ success: false })
+        this.setState({ status: clipboardBtnType.DEFAULT })
       }, 3000)
     } catch (error) {
-      this.setState({ invalid: true })
+      this.setState({ status: clipboardBtnType.INVALID })
       setTimeout(() => {
-        this.setState({ invalid: false })
+        this.setState({ status: clipboardBtnType.DEFAULT })
       }, 3000)
     }
   }
 
   render () {
-    return (
+    const btnObj = R.find(R.propEq('enum', this.state.status), clipboardBtnMap)
+    return btnObj ? (
       <button
         type='button'
         onClick={this.getDataFromClipboard}
         className={classNames(classes.clipboardBtn, {
-          [classes.invalid]: this.state.invalid
+          [classes.invalid]: btnObj.enum === clipboardBtnType.INVALID
         })}
-        disabled={this.state.invalid || this.state.success}
+        disabled={btnObj.disabled}
       >
-        {this.state.invalid ? (
-          <React.Fragment>
-            <i className='fas fa-times' />
-            Invalid Clipboard Text
-          </React.Fragment>
-        ) : this.state.success ? (
-          <React.Fragment>
-            <i className='fas fa-check' />
-            Success!
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <i className='fas fa-clipboard' />
-            Import From Clipboard
-          </React.Fragment>
-        )}
+        {btnObj.element}
       </button>
-    )
+    ) : null
   }
 }

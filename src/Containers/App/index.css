@@ -1,0 +1,17 @@
+.wrapper {
+  background-color: #e6e6e6;
+  color: #333;
+  transition: 0.5s;
+}
+
+.wrapper.dark {
+  background-color: #151515;
+  color: #e6e6e6;
+}
+
+.wrapper.dark select,
+.wrapper.dark textarea,
+.wrapper.dark input {
+  background-color: #222;
+  color: #e6e6e6;
+}
