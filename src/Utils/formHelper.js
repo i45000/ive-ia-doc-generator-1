@@ -65,12 +65,19 @@ export const validateImport = (
 export const generateFile = (formValue: { [string]: { [string]: any } }) => {
   JSZipUtils.getBinaryContent(templateDocument, (error, content) => {
     if (error) throw error
+
+    const today = new Date()
+    const dd = today.getDate()
+    const mm = today.getMonth() + 1 // January is 0!
+    const yyyy = today.getFullYear()
+    const todayString = mm + '/' + dd + '/' + yyyy
+
     const zip = new JSZip(content)
     // eslint-disable-next-line
     let doc = new Docxtemplater().loadZip(zip).setOptions({
       parser: tag => ({
         get: (scope: Object) =>
-          tag === '.' ? scope : R.path(R.split('.', tag), scope)
+          tag === 'today' ? todayString : R.path(R.split('.', tag), scope)
       })
     })
     doc.setData(formValue)
