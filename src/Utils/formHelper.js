@@ -72,15 +72,22 @@ export const generateFile = (formValue: { [string]: { [string]: any } }) => {
     const yyyy = today.getFullYear()
     const todayString = mm + '/' + dd + '/' + yyyy
 
+    const prepareData = R.compose(
+      R.assocPath(
+        ['iaJob', 'allowancePerDay'],
+        parseInt(R.path(['iaJob', 'allowancePerMonth'])) / 30
+      ),
+      R.assocPath(['today'], todayString)
+    )(formValue)
+
     const zip = new JSZip(content)
     // eslint-disable-next-line
     let doc = new Docxtemplater().loadZip(zip).setOptions({
       parser: tag => ({
-        get: (scope: Object) =>
-          tag === 'today' ? todayString : R.path(R.split('.', tag), scope)
+        get: (scope: Object) => R.path(R.split('.', tag), scope)
       })
     })
-    doc.setData(formValue)
+    doc.setData(prepareData)
 
     try {
       doc.render()
