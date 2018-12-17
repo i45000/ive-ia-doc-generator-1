@@ -5,6 +5,7 @@
       "import-sort --write",
       "prettier-eslint --write",
       "eslint --fix",
+      "flow focus-check",
       "jest --bail --findRelatedTests",
       "git add"
     ],
