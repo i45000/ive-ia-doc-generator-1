@@ -14,6 +14,7 @@ type Props = {
 }
 
 const fields = getFields(inputMap.personalInfo)
+const medicalInfoFields = getFields(inputMap.medicalInfo)
 const emergencyFields = getFields(inputMap.emergencyContact)
 
 export const PersonalInfo = (props: Props) => (
@@ -34,6 +35,26 @@ export const PersonalInfo = (props: Props) => (
         {fields.tel}
       </FlexLabel>
       <FlexLabel label='Email'>{fields.email}</FlexLabel>
+    </Fieldset>
+
+    <Fieldset model='.medicalInfo'>
+      <h4>Medical Information</h4>
+      <FlexLabel label='Allergies'>
+        {medicalInfoFields.allergies}
+        <span>[optional]</span>
+      </FlexLabel>
+      <FlexLabel label='Prescription Drugs'>
+        {medicalInfoFields.prescriptionDrugs}
+        <span>[optional]</span>
+      </FlexLabel>
+      <FlexLabel label='Physical Limitations'>
+        {medicalInfoFields.physicalLimitations}
+        <span>[optional]</span>
+      </FlexLabel>
+      <FlexLabel label='Other'>
+        {medicalInfoFields.other}
+        <span>[optional]</span>
+      </FlexLabel>
     </Fieldset>
 
     <Fieldset model='.emergencyContact'>

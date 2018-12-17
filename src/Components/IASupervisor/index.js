@@ -23,7 +23,7 @@ export const IASupervisor = (props: Props) => (
         {fields.name}
       </FlexLabel>
       <FlexLabel label='Post'>{fields.post}</FlexLabel>
-      <FlexLabel label='Phone'>{fields.phone}</FlexLabel>
+      <FlexLabel label='Phone'>{fields.tel}</FlexLabel>
       <FlexLabel label='Email'>{fields.email}</FlexLabel>
     </Fieldset>
   </Box>
