@@ -10,7 +10,7 @@ export const iaRequirement = {
     element: (
       <Control.select>
         <option value='Fair'>Fair</option>
-        <option value=''>Fluent</option>
+        <option value='Fluent'>Fluent</option>
       </Control.select>
     )
   },
@@ -20,7 +20,7 @@ export const iaRequirement = {
     element: (
       <Control.select>
         <option value='Fair'>Fair</option>
-        <option value=''>Fluent</option>
+        <option value='Fluent'>Fluent</option>
       </Control.select>
     )
   },
@@ -30,7 +30,7 @@ export const iaRequirement = {
     element: (
       <Control.select>
         <option value='Fair'>Fair</option>
-        <option value=''>Fluent</option>
+        <option value='Fluent'>Fluent</option>
       </Control.select>
     )
   },

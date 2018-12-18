@@ -26,7 +26,7 @@ export const iaMentor = {
     initialValue: '',
     element: <Control.text />
   },
-  phone: {
+  tel: {
     required: true,
     initialValue: '',
     element: <Control.text type='number' min='10000000' max='99999999' />

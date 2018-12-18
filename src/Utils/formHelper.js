@@ -67,7 +67,7 @@ const addFields = (formValue: { [string]: { [string]: any } }) => {
   const dd = today.getDate()
   const mm = today.getMonth() + 1 // January is 0!
   const yyyy = today.getFullYear()
-  const todayString = mm + '/' + dd + '/' + yyyy
+  const todayString = yyyy + '-' + mm + '-' + dd
 
   const allergies = R.path(['medicalInfo', 'allergies'], formValue)
   const hasAllergies = allergies !== '' && allergies !== null
@@ -89,6 +89,15 @@ const addFields = (formValue: { [string]: { [string]: any } }) => {
   const other = R.path(['medicalInfo', 'other'], formValue)
   const hasOther = other !== '' && other !== null
 
+  const businessNature = R.path(['iaCompany', 'nature'], formValue)
+  const businessIsIT = businessNature === 'IT'
+
+  const jobArea = R.path(['iaCompany', 'nature'], formValue)
+  const jobAreaIsIT = jobArea === 'IT'
+
+  const jobCountry = R.path(['iaJob', 'country'], formValue)
+  const jobCountryIsOthers = jobCountry === 'Other'
+
   return R.compose(
     R.assocPath(
       ['iaJob', 'allowancePerDay'],
@@ -101,6 +110,9 @@ const addFields = (formValue: { [string]: { [string]: any } }) => {
       hasPhysicalLimitations
     ),
     R.assocPath(['medicalInfo', 'hasOther'], hasOther),
+    R.assocPath(['iaCompany', 'isIT'], businessIsIT),
+    R.assocPath(['iaJob', 'isIT'], jobAreaIsIT),
+    R.assocPath(['iaJob', 'isOthers'], jobCountryIsOthers),
     R.assoc('today', todayString)
   )(formValue)
 }

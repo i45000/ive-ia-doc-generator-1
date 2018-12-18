@@ -30,7 +30,16 @@ export const IADetail = (props: Props) => (
         {fields.englishName}
       </FlexLabel>
       <FlexLabel label='Address'>{fields.address}</FlexLabel>
-      <FlexLabel label='Nature of Business'>{fields.nature}</FlexLabel>
+      <FlexLabel label='District'>{fields.district}</FlexLabel>
+      <FlexLabel label='Business Registration Certificate No.'>
+        {fields.businessRegistrationCertificateNo}
+        <span>[optional]</span>
+      </FlexLabel>
+      <FlexLabel label='Nature of Business'>
+        <div className={classes.noWidth}>{fields.type}</div>
+        <div className={classes.noWidth}>{fields.nature}</div>
+        {fields.nonITNature}
+      </FlexLabel>
     </Fieldset>
 
     <Fieldset model='.iaMentor'>
@@ -41,15 +50,33 @@ export const IADetail = (props: Props) => (
         {mentorFields.name}
       </FlexLabel>
       <FlexLabel label='Position'>{mentorFields.position}</FlexLabel>
-      <FlexLabel label='Phone'>{mentorFields.phone}</FlexLabel>
+      <FlexLabel label='Tel'>{mentorFields.tel}</FlexLabel>
       <FlexLabel label='Fax'>
         {mentorFields.fax}
         <span>[optional]</span>
       </FlexLabel>
+      <FlexLabel label='Email'>{mentorFields.email}</FlexLabel>
     </Fieldset>
 
     <Fieldset model='.iaJob'>
       <h4>Job Details</h4>
+      <FlexLabel label='Address'>
+        {jobFields.address}
+        <span>[optional]</span>
+      </FlexLabel>
+      <FlexLabel label='District'>
+        {jobFields.district}
+        <span>[optional]</span>
+      </FlexLabel>
+      <FlexLabel label='Work outside HK'>{jobFields.workOutsideHK}</FlexLabel>
+      <FlexLabel label='Country of Workplace'>
+        <div className={classes.noWidth}>{jobFields.country}</div>
+        {jobFields.nonHKCountry}
+      </FlexLabel>
+      <FlexLabel label='Area'>
+        <div className={classes.noWidth}>{jobFields.area}</div>
+        {jobFields.nonITArea}
+      </FlexLabel>
       <FlexLabel label='Property'>{jobFields.property}</FlexLabel>
       <FlexLabel label='Shift Duty'>{jobFields.shiftDuty}</FlexLabel>
       <FlexLabel label='Title'>{jobFields.title}</FlexLabel>
@@ -75,9 +102,15 @@ export const IADetail = (props: Props) => (
         {jobFields.totalHour}
         <span>Hour(s)</span>
       </FlexLabel>
-      <FlexLabel label='Allowance per Month'>
+      <FlexLabel label='Allowance'>
         <span>$</span>
-        {jobFields.allowancePerMonth}
+        {jobFields.allowance}
+        <span className={classes.to}>per</span>
+        <div className={classes.noWidth}>{jobFields.allowancePer}</div>
+      </FlexLabel>
+      <FlexLabel>
+        <span className={classes.atTheEndOf}>pay at the end of</span>
+        <div className={classes.noWidth}>{jobFields.payAt}</div>
       </FlexLabel>
       <FlexLabel label='Overtime Allowance'>
         <span>$</span>
