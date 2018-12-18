@@ -81,7 +81,7 @@
     "webpack-dev-server": "^3.1.10"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --disableHostCheck=true",
     "build": "webpack --config webpack.config.js",
     "test": "jest",
     "flow": "flow",
