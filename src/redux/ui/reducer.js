@@ -7,10 +7,11 @@ import type { ActionType } from 'redux-actions'
 
 import { uiCreators, uiTypes } from './actions'
 
-type StateProps = {
+type StateProps = RecordOf<{
   importExport: RecordOf<{ isCollapsed: boolean }>,
   theme: RecordOf<{ dark: boolean }>
-}
+}>
+
 export const INITIAL_STATE: RecordOf<StateProps> = Record({
   importExport: Record({
     isCollapsed: true

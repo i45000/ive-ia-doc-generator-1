@@ -69,10 +69,35 @@ export const iaJob = {
       </Control.select>
     )
   },
-  allowancePerMonth: {
+  allowance: {
     required: true,
     initialValue: '0',
     element: <Control.text type='number' min='0' />
+  },
+  allowancePer: {
+    required: true,
+    initialValue: 'Day',
+    element: (
+      <Control.select>
+        <option value='Hour'>Hour</option>
+        <option value='Day'>Day</option>
+        <option value='Week'>Week</option>
+        <option value='Month'>Month</option>
+        <option value='Scheme'>Scheme</option>
+      </Control.select>
+    )
+  },
+  payAt: {
+    required: true,
+    initialValue: 'Day',
+    element: (
+      <Control.select>
+        <option value='Day'>Day</option>
+        <option value='Week'>Week</option>
+        <option value='Month'>Month</option>
+        <option value='Scheme'>Scheme</option>
+      </Control.select>
+    )
   },
   overtimeAllowance: {
     required: true,
@@ -90,9 +115,64 @@ export const iaJob = {
     element: (
       <Control.select>
         <option value='regular'>on regular</option>
-        <option value='request'>on request</option>
+        <option value='on request'>on request</option>
         <option value='project basis'>on project basis</option>
       </Control.select>
     )
+  },
+  area: {
+    required: true,
+    initialValue: 'IT',
+    element: (
+      <Control.select>
+        <option value='IT'>IT</option>
+        <option value='Other'>Other</option>
+      </Control.select>
+    )
+  },
+  nonITArea: {
+    required: false,
+    initialValue: '',
+    element: <Control.text placeHolder='If others, please specify' />
+  },
+  address: {
+    required: false,
+    initialValue: '',
+    element: <Control.text placeHolder='If not the address above' />
+  },
+  workOutsideHK: {
+    required: true,
+    initialValue: 'No',
+    element: (
+      <Control.select>
+        <option value='No'>No</option>
+        <option value='Station outside Hong Kong'>
+          Station outside Hong Kong
+        </option>
+        <option value='Daily Travel'>Daily Travel</option>
+        <option value='Occasional'>Occasional</option>
+      </Control.select>
+    )
+  },
+  country: {
+    required: true,
+    initialValue: 'Hong Kong',
+    element: (
+      <Control.select>
+        <option value='Hong Kong'>Hong Kong</option>
+        <option value='Mainland China'>Mainland China</option>
+        <option value='Other'>Others</option>
+      </Control.select>
+    )
+  },
+  nonHKCountry: {
+    required: false,
+    initialValue: '',
+    element: <Control.text placeHolder='If others, please specify' />
+  },
+  district: {
+    required: false,
+    initialValue: '',
+    element: <Control.text placeHolder='If not the address above' />
   }
 }

@@ -6,6 +6,7 @@ import { iaJob } from './iaJob'
 import { iaMentor } from './iaMentor'
 import { iaRequirement } from './iaRequirement'
 import { iaSupervisor } from './iaSupervisor'
+import { medicalInfo } from './medicalInfo'
 import { personalInfo } from './personalInfo'
 import { programInfo } from './programInfo'
 import { siteVisit } from './siteVisit'
@@ -22,6 +23,7 @@ export const inputMap: {
 } = {
   programInfo,
   personalInfo,
+  medicalInfo,
   emergencyContact,
   iaSupervisor,
   iaCompany,

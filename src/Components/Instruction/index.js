@@ -18,7 +18,12 @@ export const Instruction = () => (
         <div className={classes.or}>or</div>
         Export as JSON for future edit or share
       </li>
-      <li>Sign the Document at page 6, 7, 11, 13, 14, 16, 18</li>
+      <li>Sign the Document at page 6, 7, 11, 13, 14, 18, 23, 24</li>
+      <li>Complete the survey at page 19-21</li>
+      <li>Complete the report at page 25-27</li>
     </ol>
+    Note <br />
+    Page 15, 16 will not generate(and no need to sign) because it is optional
+    (see page 15 head)
   </Box>
 )
