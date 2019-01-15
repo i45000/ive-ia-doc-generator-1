@@ -1,3 +1,5 @@
 // @flow strict
 
-export const formSelector = (state: Object) => state.form
+import * as R from 'ramda'
+
+export const formSelector = R.prop('form')
