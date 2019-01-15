@@ -34,10 +34,7 @@ const ImportExport = (props: Props) => (
       <div className={classes.column}>
         <div className={classes.columnWrapper}>
           <span className={classes.title}>Export</span>
-          <Export
-            formData={props.form.toJS()}
-            isDarkTheme={props.isDarkTheme}
-          />
+          <Export formData={props.form} isDarkTheme={props.isDarkTheme} />
         </div>
       </div>
     </Container>

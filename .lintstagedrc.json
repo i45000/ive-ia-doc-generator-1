@@ -4,6 +4,7 @@
     "*.js": [
       "import-sort --write",
       "prettier-eslint --write",
+      "flow focus-check",
       "eslint --fix",
       "jest --bail --findRelatedTests",
       "git add"

@@ -1,7 +1,6 @@
 // @flow strict
 
 import classNames from 'classnames'
-import { fromJS } from 'immutable'
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -26,7 +25,7 @@ class Import extends React.PureComponent<Props, State> {
   validateAndSet = textObject => {
     const isValid = validateImport(textObject, inputMap)
     if (!isValid) throw new Error('invalid fields')
-    this.props.setFields('form', fromJS(textObject))
+    this.props.setFields('form', textObject)
   }
 
   render () {

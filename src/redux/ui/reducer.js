@@ -1,35 +1,34 @@
 // @flow strict
 
-import { Record } from 'immutable'
-import type { RecordOf } from 'immutable'
+import * as R from 'ramda'
 import { handleActions } from 'redux-actions'
 import type { ActionType } from 'redux-actions'
 
 import { uiCreators, uiTypes } from './actions'
 
-type StateProps = RecordOf<{
-  importExport: RecordOf<{ isCollapsed: boolean }>,
-  theme: RecordOf<{ dark: boolean }>
-}>
+type State = {
+  importExport: { isCollapsed: boolean },
+  theme: { dark: boolean }
+}
 
-export const INITIAL_STATE: RecordOf<StateProps> = Record({
-  importExport: Record({
+export const INITIAL_STATE: State = {
+  importExport: {
     isCollapsed: true
-  })(),
-  theme: Record({
+  },
+  theme: {
     dark: false
-  })()
-})()
+  }
+}
 
 export const setImportExportCollapsed = (
   state: typeof INITIAL_STATE,
   { payload }: ActionType<typeof uiCreators.setImportExportCollapsed>
-) => state.setIn(['importExport', 'isCollapsed'], payload)
+) => R.assocPath(['importExport', 'isCollapsed'], payload, state)
 
 export const setColorTheme = (
   state: typeof INITIAL_STATE,
   { payload }: ActionType<typeof uiCreators.setColorTheme>
-) => state.setIn(['theme', 'dark'], payload)
+) => R.assocPath(['theme', 'dark'], payload, state)
 
 export const uiReducer = handleActions(
   {

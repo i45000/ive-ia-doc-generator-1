@@ -2,7 +2,6 @@
 
 import Docxtemplater from 'docxtemplater'
 import FileSaver from 'file-saver'
-import { fromJS } from 'immutable'
 import JSZip from 'jszip'
 import JSZipUtils from 'jszip-utils'
 import * as R from 'ramda'
@@ -11,22 +10,19 @@ import React from 'react'
 import templateDocument from '../assets/template-document.docx'
 import { inputMap as mapReference } from '../inputMap'
 
-export const getInitState: (typeof mapReference) => any = R.compose(
-  fromJS,
-  R.mapObjIndexed(R.mapObjIndexed(({ initialValue }) => initialValue))
+export const getInitState: (typeof mapReference) => any = R.mapObjIndexed(
+  R.mapObjIndexed(({ initialValue }) => initialValue)
 )
 
 export const getInitPercentage: (
   typeof mapReference
 ) => { [string]: number } = R.mapObjIndexed(() => 0)
 
-export const getFields = R.mapObjIndexed(
-  ({ element, required, key, initialValue }, objKey) =>
-    React.cloneElement(element, {
-      required,
-      model: `.${key !== undefined ? key : objKey}`,
-      defaultValue: initialValue
-    })
+export const getFields = R.mapObjIndexed(({ element, required, key }, objKey) =>
+  React.cloneElement(element, {
+    required,
+    model: `.${key !== undefined ? key : objKey}`
+  })
 )
 
 export const getCompletePercentage = (

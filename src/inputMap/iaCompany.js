@@ -1,7 +1,7 @@
 // @flow strict
 
 import React from 'react'
-import { Control } from 'react-redux-form/immutable'
+import { Control } from 'react-redux-form'
 
 export const iaCompany = {
   chineseName: {

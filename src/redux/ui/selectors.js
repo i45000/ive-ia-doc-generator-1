@@ -1,7 +1,11 @@
 // @flow strict
 
-export const isImportExportCollapsedSelector = (state: Object) =>
-  state.ui.getIn(['importExport', 'isCollapsed'])
+import * as R from 'ramda'
 
-export const isDarkThemeSelector = (state: Object) =>
-  state.ui.getIn(['theme', 'dark'])
+export const isImportExportCollapsedSelector = R.path([
+  'ui',
+  'importExport',
+  'isCollapsed'
+])
+
+export const isDarkThemeSelector = R.path(['ui', 'theme', 'dark'])

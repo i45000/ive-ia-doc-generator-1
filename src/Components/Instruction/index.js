@@ -22,8 +22,10 @@ export const Instruction = () => (
       <li>Complete the survey at page 19-21</li>
       <li>Complete the report at page 25-27</li>
     </ol>
-    Note <br />
-    Page 15, 16 will not generate(and no need to sign) because it is optional
-    (see page 15 head)
+    <div className={classes.note}>
+      Note <br />
+      Page 15, 16 will not generate(and no need to sign) because it is optional
+      (see page 15 head)
+    </div>
   </Box>
 )

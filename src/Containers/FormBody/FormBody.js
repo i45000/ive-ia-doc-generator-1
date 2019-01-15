@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { Form } from 'react-redux-form/immutable'
+import { Form } from 'react-redux-form'
 
 import { IADetail } from '../../Components/IADetail'
 import { IASupervisor } from '../../Components/IASupervisor'
@@ -31,20 +31,17 @@ class FormBody extends React.PureComponent<Props, State> {
   }
 
   componentDidMount () {
-    const percentageObj = getCompletePercentage(
-      inputMap,
-      this.props.form.toJS()
-    )
+    const percentageObj = getCompletePercentage(inputMap, this.props.form)
     this.setState({ percentage: percentageObj })
   }
 
   handleChange = (values: Object) => {
-    const percentageObj = getCompletePercentage(inputMap, values.toJS())
+    const percentageObj = getCompletePercentage(inputMap, values)
     this.setState({ percentage: percentageObj })
   }
 
   handleSubmit = (values: Object) => {
-    generateFile(values.toJS())
+    generateFile(values)
   }
 
   render () {

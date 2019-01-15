@@ -1,6 +1,6 @@
 // @flow strict
 
-import { createForms } from 'react-redux-form/immutable'
+import { createForms } from 'react-redux-form'
 
 import { inputMap } from '../../inputMap'
 import { getInitState } from '../../utils/formHelper'
