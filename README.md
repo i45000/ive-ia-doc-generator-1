@@ -4,6 +4,9 @@ This project is used to auto fill in industrial attachment document of Hong Kong
 Successor of [ive-ia-doc-generator-legacy](https://github.com/marklai1998/ive-ia-doc-generator-legacy) <br/>
 All credit goes to: Mark Lai (IT114115/2B 2017-2018)
 
+## Note
+Please try to clear localstorage if the page not showing
+
 ## Build it yourself
 1. Clone the repository
 
