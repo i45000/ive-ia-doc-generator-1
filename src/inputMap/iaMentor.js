@@ -26,6 +26,11 @@ export const iaMentor = {
     initialValue: '',
     element: <Control.text />
   },
+  department: {
+    required: true,
+    initialValue: '',
+    element: <Control.text />
+  },
   tel: {
     required: true,
     initialValue: '',

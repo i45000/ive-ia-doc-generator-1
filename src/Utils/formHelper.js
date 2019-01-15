@@ -20,11 +20,13 @@ export const getInitPercentage: (
   typeof mapReference
 ) => { [string]: number } = R.mapObjIndexed(() => 0)
 
-export const getFields = R.mapObjIndexed(({ element, required, key }, objKey) =>
-  React.cloneElement(element, {
-    required,
-    model: `.${key !== undefined ? key : objKey}`
-  })
+export const getFields = R.mapObjIndexed(
+  ({ element, required, key, initialValue }, objKey) =>
+    React.cloneElement(element, {
+      required,
+      model: `.${key !== undefined ? key : objKey}`,
+      defaultValue: initialValue
+    })
 )
 
 export const getCompletePercentage = (
@@ -69,52 +71,73 @@ const addFields = (formValue: { [string]: { [string]: any } }) => {
   const yyyy = today.getFullYear()
   const todayString = yyyy + '-' + mm + '-' + dd
 
+  const jobArea = R.path(['iaCompany', 'nature'], formValue)
+  const jobCountry = R.path(['iaJob', 'country'], formValue)
+  const jobCountryIsOthers = jobCountry === 'Other'
+  const jobAreaIsIT = jobArea === 'IT'
+  const startDate = new Date(
+    R.compose(
+      R.toString,
+      R.path(['iaJob', 'startDate'])
+    )(formValue)
+  )
+  const endDate = new Date(
+    R.compose(
+      R.toString,
+      R.path(['iaJob', 'endDate'])
+    )(formValue)
+  )
+  const weeksBetween = Math.round((endDate - startDate) / 604800000)
+
+  const workOutsideHK = R.path(['iaJob', 'workOutsideHK'], formValue)
+  const isWorkOutsideHK = workOutsideHK !== 'No'
+
+  const withIaJob = R.compose(
+    R.assocPath(
+      ['iaJob', 'allowancePerDay'],
+      parseInt(R.path(['iaJob', 'allowancePerMonth'])) / 30
+    ),
+    R.assocPath(['iaJob', 'isIT'], jobAreaIsIT),
+    R.assocPath(['iaJob', 'isOthers'], jobCountryIsOthers),
+    R.assocPath(['iaJob', 'weeksBetween'], weeksBetween),
+    R.assocPath(['iaJob', 'isWorkOutsideHK'], isWorkOutsideHK)
+  )(formValue)
+
   const allergies = R.path(['medicalInfo', 'allergies'], formValue)
-  const hasAllergies = allergies !== '' && allergies !== null
+  const hasAllergies = allergies !== ''
 
   const prescriptionDrugs = R.path(
     ['medicalInfo', 'prescriptionDrugs'],
     formValue
   )
-  const hasPrescriptionDrugs =
-    prescriptionDrugs !== '' && prescriptionDrugs !== null
+  const hasPrescriptionDrugs = prescriptionDrugs !== ''
 
   const physicalLimitations = R.path(
     ['medicalInfo', 'physicalLimitations'],
     formValue
   )
-  const hasPhysicalLimitations =
-    physicalLimitations !== '' && physicalLimitations !== null
+  const hasPhysicalLimitations = physicalLimitations !== ''
 
   const other = R.path(['medicalInfo', 'other'], formValue)
-  const hasOther = other !== '' && other !== null
+  const hasOther = other !== ''
 
-  const businessNature = R.path(['iaCompany', 'nature'], formValue)
-  const businessIsIT = businessNature === 'IT'
-
-  const jobArea = R.path(['iaCompany', 'nature'], formValue)
-  const jobAreaIsIT = jobArea === 'IT'
-
-  const jobCountry = R.path(['iaJob', 'country'], formValue)
-  const jobCountryIsOthers = jobCountry === 'Other'
-
-  return R.compose(
-    R.assocPath(
-      ['iaJob', 'allowancePerDay'],
-      parseInt(R.path(['iaJob', 'allowancePerMonth'])) / 30
-    ),
+  const withMedicalInfo = R.compose(
     R.assocPath(['medicalInfo', 'hasAllergies'], hasAllergies),
     R.assocPath(['medicalInfo', 'hasPrescriptionDrugs'], hasPrescriptionDrugs),
     R.assocPath(
       ['medicalInfo', 'hasPhysicalLimitations'],
       hasPhysicalLimitations
     ),
-    R.assocPath(['medicalInfo', 'hasOther'], hasOther),
+    R.assocPath(['medicalInfo', 'hasOther'], hasOther)
+  )(withIaJob)
+
+  const businessNature = R.path(['iaCompany', 'nature'], formValue)
+  const businessIsIT = businessNature === 'IT'
+
+  return R.compose(
     R.assocPath(['iaCompany', 'isIT'], businessIsIT),
-    R.assocPath(['iaJob', 'isIT'], jobAreaIsIT),
-    R.assocPath(['iaJob', 'isOthers'], jobCountryIsOthers),
     R.assoc('today', todayString)
-  )(formValue)
+  )(withMedicalInfo)
 }
 
 export const generateFile = (formValue: { [string]: { [string]: any } }) => {

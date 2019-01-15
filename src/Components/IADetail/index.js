@@ -49,6 +49,7 @@ export const IADetail = (props: Props) => (
         <span className={globalClasses.comment}>English</span>
         {mentorFields.name}
       </FlexLabel>
+      <FlexLabel label='Department'>{mentorFields.department}</FlexLabel>
       <FlexLabel label='Position'>{mentorFields.position}</FlexLabel>
       <FlexLabel label='Tel'>{mentorFields.tel}</FlexLabel>
       <FlexLabel label='Fax'>

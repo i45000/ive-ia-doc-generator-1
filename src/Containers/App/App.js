@@ -14,6 +14,7 @@ import { GoToTop } from '../../Components/GoToTop'
 import { Header } from '../../Components/Header'
 import { Instruction } from '../../Components/Instruction'
 import { IosWarning } from '../../Components/IosWarning'
+import { Warning } from '../../Components/Warning'
 import { isDarkThemeSelector } from '../../redux/ui/selectors'
 import { FormBody } from '../FormBody'
 import { ImportExport } from '../ImportExport'
@@ -34,6 +35,7 @@ const App = ({ isDarkTheme }: { isDarkTheme: boolean }) => (
       <ImportExport isDarkTheme={isDarkTheme} />
       <Container>
         <Instruction />
+        <Warning />
         <FormBody />
       </Container>
       <Footer isDarkTheme={isDarkTheme} />

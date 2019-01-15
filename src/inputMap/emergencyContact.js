@@ -22,7 +22,13 @@ export const emergencyContact = {
   relationship: {
     required: true,
     initialValue: '',
-    element: <Control.text />
+    element: (
+      <Control.select>
+        <option value='son'>Son</option>
+        <option value='daughter'>Daughter</option>
+        <option value='ward'>ward</option>
+      </Control.select>
+    )
   },
   placeOfWork: {
     required: true,
